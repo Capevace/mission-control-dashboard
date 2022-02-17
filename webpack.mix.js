@@ -20,23 +20,23 @@ mix.setPublicPath(outputFolder)
 	})
 	.sourceMaps(false, 'eval-source-map')
 	.vue({ version: '2' })
+	.alias({
+		'@': path.resolve(__dirname, 'app/js'),
+		'@components': path.resolve(__dirname, 'app/js/components'),
+		'@form': path.resolve(__dirname, 'app/js/components/form'),
+		'@socket': path.resolve(__dirname, 'app/js/socket'),
+		'@vue': path.resolve(__dirname, 'app/js/vue'),
+		'@pages': path.resolve(__dirname, 'app/js/pages'),
+		'@helpers': path.resolve(__dirname, 'app/js/helpers'),
+		'@config': path.resolve(__dirname, 'app/js/config'),
+		'@api': path.resolve(__dirname, 'app/js/api'),
+		'@plugin-api': path.resolve(__dirname, 'app/js/plugin-api'),
+	})
 	.webpackConfig({
 		output: {
 			publicPath: '/assets/',
 		},
 		resolve: {
-			alias: {
-				'@': path.resolve(__dirname, 'app/js'),
-				'@components': path.resolve(__dirname, 'app/js/components'),
-				'@form': path.resolve(__dirname, 'app/js/components/form'),
-				'@socket': path.resolve(__dirname, 'app/js/socket'),
-				'@vue': path.resolve(__dirname, 'app/js/vue'),
-				'@pages': path.resolve(__dirname, 'app/js/pages'),
-				'@helpers': path.resolve(__dirname, 'app/js/helpers'),
-				'@config': path.resolve(__dirname, 'app/js/config'),
-				'@api': path.resolve(__dirname, 'app/js/api'),
-				'@plugin-api': path.resolve(__dirname, 'app/js/plugin-api'),
-			},
 			fallback: {
 				buffer: require.resolve('buffer'),
 				process: require.resolve('process/browser'),
